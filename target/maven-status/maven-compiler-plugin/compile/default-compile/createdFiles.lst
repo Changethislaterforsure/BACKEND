@@ -1,0 +1,4 @@
+com/example/flights/domain/City.class
+com/example/flights/domain/Passenger.class
+com/example/flights/domain/Airport.class
+com/example/flights/domain/Aircraft.class
