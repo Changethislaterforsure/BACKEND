@@ -25,11 +25,11 @@ public class Airport {
     @Column(nullable = false, unique = true) private String code;
 
     @ManyToOne(optional = false)
-    @JsonBackReference // prevents recursion with City.airports
+    @JsonBackReference 
     private City city;
 
     @ManyToMany(mappedBy = "airports")
-    @JsonIgnore // avoid deep cycles when serializing
+    @JsonIgnore 
     private Set<Aircraft> aircraft = new HashSet<>();
 
     public Airport() {}

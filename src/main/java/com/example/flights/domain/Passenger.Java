@@ -1,9 +1,19 @@
 package com.example.flights.domain;
 
-import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Passenger {
@@ -19,6 +29,7 @@ public class Passenger {
     private City city;
 
     // Passenger ↔ Aircraft (owning side)
+    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "passenger_aircraft",
             joinColumns = @JoinColumn(name = "passenger_id"),
